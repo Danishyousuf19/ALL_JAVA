@@ -1,4 +1,6 @@
-
+// Write a method that returns the number of days in a year using the following header:
+// public static int numberOfDaysInAYear(int year)
+// Write a java program that displays the number of days in year from 2000 to 2020.
 public class Q4 {
 //according to question
 	public static int noofdays(int a,int b) {
