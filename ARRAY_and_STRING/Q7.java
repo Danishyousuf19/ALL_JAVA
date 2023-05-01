@@ -1,4 +1,7 @@
-
+// Write java method called count accepts a string as input and returns the number of vowels in 
+// it. The method header is given below.
+// public static int count(String str)
+// For example, count ("Welcome") returns 2.
 public class Q7 {
 	public static int count(String str) {
 		int number=0;
