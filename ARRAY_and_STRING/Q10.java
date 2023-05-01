@@ -1,3 +1,5 @@
+// Write a java program to calculate the area of triangle, square, circle, rectangle by using method 
+// overloading.
 
 public class Q10 {
 //overloading
