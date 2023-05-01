@@ -1,5 +1,48 @@
 import java.util.Arrays;
-
+// Question-1:
+// Write a program to find the first non-repeated character in a given String, for example, if the 
+// given String is "Java" then the first non-repeated character is "J".
+// Question -2:
+// Write a java program to calculate the volume of sphere, cuboid and cube by using method 
+// overloading.
+// Volume of a cube = s * s * s [s: Side of the cube]
+// Volume of a Sphere = 4
+// 3
+// × π × r
+// 3
+// [r: radius]
+// Volume of a cuboid = L × b × h [L: Length, b: Breadth, h: Height]
+// Question-3:
+// Write a Java method to display the middle character of a string.
+// Note:
+// a) If the length of the string is odd there will be one middle characters.
+// b) If the length of the string is even, then there would be two middle characters, we need 
+// to print the second middle character.
+// Example: 
+// Input a string: ABC
+// Expected Output:
+// The middle character in the string: B
+// Example: 
+// Input a string: JAVA
+// Expected Output:
+// The middle character in the string: V
+// Question-4:
+// Write a Java method to count all words in a string.
+// Example: 
+// Input the string: 
+// The quick brown fox jumps over the lazy dog.
+// Expected Output:
+// Number of words in the string: 9
+// Question-5:
+// Write a Java method that accept three integers and check whether they are consecutive are not. 
+// Return true or false.
+// Expected Output:
+// Input the first number: 15
+// Input the second number: 16
+// Input the third number: 17
+// Check whether the three said numbers are consecutive or not!
+// true
+// ************
 public class HW {
 	
 	
