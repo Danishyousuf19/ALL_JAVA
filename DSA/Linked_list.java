@@ -97,3 +97,9 @@ Linked_list(){
 	}
 
 }
+/*is-->a-->null
+is-->a-->book-->null
+This-->is-->a-->book-->null
+size = 4
+is-->a-->null
+size = 2*/
