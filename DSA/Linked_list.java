@@ -79,7 +79,32 @@ Linked_list(){
 		public  int getsize() {
 			return size;
 		}
-		
+		public   void reverse() {
+			if(head==null||head.next==null) {
+				return;
+			}
+			node prev=head;
+			node current =head.next;
+			while(current!=null) {
+				node next=current.next;
+				current.next=prev;
+				//update
+				prev=current;
+				current=next;
+						
+			}
+			head.next=null;
+			head=prev;
+		}
+		public   node rev_recurssion(node head) {
+			if(head==null||head.next==null) {
+				return head;
+			}
+			node newhead=rev_recurssion(head.next);
+			head.next.next=head;
+			head.next=null;
+			return newhead;
+		}
 	public static void main(String[] args) {
 		Linked_list list=new Linked_list();
 		list.addFirst("a");
@@ -89,15 +114,20 @@ Linked_list(){
 		list.print();
 		list.addFirst("This");
 		list.print();
+		//list.reverse();
+      //  list.print();
+        list.head =list.rev_recurssion(list.head);
+        list.print();
 		System.out.println("size = "+list.getsize());
         list.DeleteFirst();
         list.DeleteLast();
         list.print();
         System.out.println("size = "+list.getsize());
+      
 	}
 
 }
-/*is-->a-->null
+/*/is-->a-->null
 is-->a-->book-->null
 This-->is-->a-->book-->null
 size = 4
