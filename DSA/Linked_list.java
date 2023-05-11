@@ -2,12 +2,16 @@ package extra;
 
 public class Linked_list {
 node head;
+private int size;
+Linked_list(){
+	this.size=0;
+}
 	class node{
 		
 		String data;
 		node next;
 		node(String d){
-			data=d;
+			data=d;size++;
 			this.next=null;
 		}
 	}
@@ -46,6 +50,36 @@ node head;
 			}
 			System.out.println("null");
 	}
+		public  void DeleteFirst() {
+			if(head==null){
+				System.out.println("Empty list");
+				return;
+			}
+			size--;
+			head=head.next;
+		}
+		public  void DeleteLast() {
+			if(head==null){
+				System.out.println("Empty list");
+				return;
+			}
+			size--;
+			if(head.next==null) {
+				head=null;
+				return;
+			}
+			node secondLast=head;
+			node last=head.next;
+			while(last.next!=null) {
+				last=last.next;
+				secondLast=secondLast.next;
+			}
+			secondLast.next=null;
+		}
+		public  int getsize() {
+			return size;
+		}
+		
 	public static void main(String[] args) {
 		Linked_list list=new Linked_list();
 		list.addFirst("a");
@@ -55,7 +89,11 @@ node head;
 		list.print();
 		list.addFirst("This");
 		list.print();
-
+		System.out.println("size = "+list.getsize());
+        list.DeleteFirst();
+        list.DeleteLast();
+        list.print();
+        System.out.println("size = "+list.getsize());
 	}
 
 }
