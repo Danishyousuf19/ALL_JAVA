@@ -105,6 +105,30 @@ Linked_list(){
 			head.next=null;
 			return newhead;
 		}
+//		//only logic
+//		public static Linked_list find_element_from_end_and_delete(Linked_list head,int n) {
+//			if(head.next==null) {
+//			return head;}
+//			int size=0;
+//			Linked_list current =head;
+//			while(current !=null) {
+//				current=current.next;
+//				size++;
+//			}
+//			if(n==size) {
+//				return head.next;
+//			}
+//			int next_to_search=size-n;
+//			int i=1;
+//			Linked_list prev=head;
+//			while(i<next_to_search) {
+//				prev=prev.next;i++;}
+//				prev.next=prev.next.next;
+//			
+//		return head;
+//			
+//		}
+		
 	public static void main(String[] args) {
 		Linked_list list=new Linked_list();
 		list.addFirst("a");
