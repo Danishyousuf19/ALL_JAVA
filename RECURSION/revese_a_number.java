@@ -7,7 +7,7 @@ import java.util.Scanner;
 //3456
 //The reverse of the given number is: 6543
 
-public class recursionQ_8 {
+public class revese_a_number {
 public static void reverse(int a,int rev) {
 	if(a==0) {
 		System.out.println("Reverse   : "+rev);
@@ -26,3 +26,6 @@ reverse(n,0);
 	}
 
 }
+//enter a number
+//3434
+	//4343
