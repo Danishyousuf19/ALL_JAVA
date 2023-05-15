@@ -4,7 +4,7 @@ import java.util.Scanner;
 //Write a recursive Java method that determines if a string s is a palindrome, that is, it is
 //equal to its reverse. 
 //Examples of palindromes include 'racecar' and 'gohangasalamiimalasagnahog'.
-public class recursion_HA_3 {
+public class is_string_palendrom {
 public static boolean  palendrom(String a,String b,int i) {
 	if(i<0) {
 	if(a.equals(b)) {
