@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 
-import Stack_peek_push_pop.Stack;
 
 public class ArrayLast_peek_pop_push {
 static class Stack{
