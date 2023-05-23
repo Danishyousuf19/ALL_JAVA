@@ -39,4 +39,4 @@ node root=tree.build(nodes);
  tree.inorder(root);
 	}
 
-}
+}//3 2 4 1 3 6 
