@@ -39,3 +39,4 @@ static class binarytry{
 	}
 
 }
+//4 5 2 6 3 1 
