@@ -7,24 +7,24 @@ public class heap<T extends Comparable<T>> {
 		list = new ArrayList<>();
 	}
 
-	private void swap(int i, int j) {
+	public void swap(int i, int j) {
 		T temp = list.get(i);
 		list.set(i, list.get(j));
 		list.set(j, temp);
 	}
 
-	private void print() {
+	public void print() {
 		for (T i : list) {
 			System.err.print(i + " ");
 		}
 	}
 
-	private void insert(T item) {
+	public void insert(T item) {
 		list.add(item);
 		upheap(list.size() - 1);
 	}
 
-	private void upheap(int idx) {
+	public void upheap(int idx) {
 		if (idx == 0) {
 			return;
 		}
@@ -35,7 +35,7 @@ public class heap<T extends Comparable<T>> {
 		}
 	}
 
-	private T remove() throws Exception {
+	public T remove() throws Exception {
 		if (list.isEmpty())
 			throw new Exception("Empty Heap");
 		T temp = list.get(0);
@@ -47,7 +47,7 @@ public class heap<T extends Comparable<T>> {
 		return temp;
 	}
 
-	private void downheap(int idx) {
+	public void downheap(int idx) {
 		int min = idx;
 		int l = left(idx);
 		int r = right(idx);
@@ -61,7 +61,7 @@ public class heap<T extends Comparable<T>> {
 		}
 	}
 
-	private void downheap_max(int idx) {
+	public void downheap_max(int idx) {
 	    int max = idx;
 	    int l = left(idx);
 	    int r = right(idx);
@@ -80,7 +80,7 @@ public class heap<T extends Comparable<T>> {
 	        downheap_max(max);
 	    }
 	}
-	private T removeMax() throws Exception {
+	public T removeMax() throws Exception {
 	    if (list.isEmpty())
 	        throw new Exception("Empty Heap");
 	    T temp = list.get(0);
@@ -91,7 +91,7 @@ public class heap<T extends Comparable<T>> {
 	    }
 	    return temp;
 	}
- private ArrayList<T> heapSort_max() throws Exception
+ public ArrayList<T> heapSort_max() throws Exception
  {
 	 ArrayList<T> temp = new ArrayList<>();
 		while (!list.isEmpty()) {
@@ -100,7 +100,7 @@ public class heap<T extends Comparable<T>> {
 		return temp;
  }
 
-	private ArrayList<T> heapSort() throws Exception {
+	public ArrayList<T> heapSort() throws Exception {
 
 		ArrayList<T> temp = new ArrayList<>();
 		while (!list.isEmpty()) {
@@ -108,20 +108,22 @@ public class heap<T extends Comparable<T>> {
 		}
 		return temp;
 	}
-
-	private int parent(int idx) {
+	public int size() {
+		return list.size();
+	}
+	public int parent(int idx) {
 		return (idx - 1) / 2;
 	}
 
-	private int left(int idx) {
+	public int left(int idx) {
 		return idx * 2 + 1;
 	}
 
-	private int right(int idx) {
+	public int right(int idx) {
 		return idx * 2 + 2;
 	}
 
-	private void maxheap() {
+	public void maxheap() {
 		for (int i = list.size() / 2; i >= 0; i--) {
 			downheap_max(i);
 		}
