@@ -214,6 +214,11 @@ public class Weighted_Graph {
 		PrimsAlgo(graph, v);
 //		PRIMS ALGORITHM
 //		Total Cost = 55
+//		Edges included are
+//		0-->1 [10]
+//		1-->2 [15]
+//		2-->3 [30]
+
 	}
 
 }
