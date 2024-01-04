@@ -26,6 +26,9 @@ public class HuffMan_Coding {
 	}
 
 	public void huffmancoding(String str) throws Exception {
+		if (str.length() == 0)
+			throw new Exception("Empty Message");
+
 		HashMap<Character, Integer> freq = new HashMap<>();
 		for (char c : str.toCharArray()) {
 			freq.put(c, freq.getOrDefault(c, 0) + 1);
@@ -56,24 +59,26 @@ public class HuffMan_Coding {
 			this.Encoder.put(root.data, res);
 			this.Decoder.put(res, root.data);
 		}
-		EncoderDecoder(root.left, res+"0");
-		EncoderDecoder(root.right, res+"1");
+		EncoderDecoder(root.left, res + "0");
+		EncoderDecoder(root.right, res + "1");
 	}
+
 	public String encode(String s) {
-	    StringBuilder sb = new StringBuilder();
-	    for (int i = 0; i < s.length(); i++) {
-	        sb.append(Encoder.get(s.charAt(i)));
-	    }
-	    return sb.toString();
+		StringBuilder sb = new StringBuilder();
+		for (int i = 0; i < s.length(); i++) {
+			sb.append(Encoder.get(s.charAt(i)));
+		}
+		return sb.toString();
 	}
+
 	public String decoder(String s) {
-		String sb="";
-		String key="";
-		for(int i=0;i<s.length();i++) {
-			key=key+s.charAt(i);
-			if(Decoder.containsKey(key)) {
-				sb=sb+Decoder.get(key);
-				key="";
+		String sb = "";
+		String key = "";
+		for (int i = 0; i < s.length(); i++) {
+			key = key + s.charAt(i);
+			if (Decoder.containsKey(key)) {
+				sb = sb + Decoder.get(key);
+				key = "";
 			}
 		}
 		return sb;
@@ -81,14 +86,14 @@ public class HuffMan_Coding {
 
 	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub
-		String str = "abbccsfasfgoyfda";
-	      HuffMan_Coding hf = new HuffMan_Coding();
-	      hf.huffmancoding(str);
-	    String cs = hf.encode(str);
-	    System.out.println(cs);
-	    String dc = hf.decoder(cs);
-	    System.out.println(dc);
-	    
+		String str = "";
+		HuffMan_Coding hf = new HuffMan_Coding();
+		hf.huffmancoding(str);
+		String cs = hf.encode(str);
+		System.out.println(cs);
+		String dc = hf.decoder(cs);
+		System.out.println(dc);
+
 //	    11010110100011
 //	    abbccda
 //

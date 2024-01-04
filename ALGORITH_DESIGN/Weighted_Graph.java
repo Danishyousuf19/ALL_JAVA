@@ -3,7 +3,7 @@ import java.util.PriorityQueue;
 
 //9999<=max value
 public class Weighted_Graph {
-	static class edge {
+	static class edge implements Comparable<edge> {
 		int src, dest, wt;
 
 		edge(int s, int d, int w) {
@@ -17,7 +17,9 @@ public class Weighted_Graph {
 	        edge edge = (edge) o;
 	        return src == edge.src && dest == edge.dest && wt == edge.wt;
 	    }
-
+		
+		 public int compareTo(edge edgeToCompare) {
+	            return this.wt - edgeToCompare.wt;}
 	}
 
 	static class pair implements Comparable<pair> {
@@ -155,9 +157,9 @@ public class Weighted_Graph {
 		}
 		System.out.println("PRIMS ALGORITHM");
 		System.out.println("Total Cost = " + cost);
-		System.out.println("Edges included are");
+		System.out.println("edges included are");
 		for (edge e : track) {
-			System.out.println(e.src + "-->" + e.dest + " [" + e.wt + "]");
+			System.out.println(e.src + "-" + e.dest + " [" + e.wt + "]");
 		}
 	}
 
@@ -194,7 +196,63 @@ public class Weighted_Graph {
 		System.out.println();
 
 	}
+	static class Subset {
+        int parent, rank;
+    }
 
+    static int findSetOfElement(Subset[] subsetArray, int element) {
+        if (subsetArray[element].parent != element) {
+            subsetArray[element].parent = findSetOfElement(subsetArray, subsetArray[element].parent);
+        }
+        return subsetArray[element].parent;
+    }
+
+    static void union(Subset[] subsetArray, int x, int y) {
+        int xRoot = findSetOfElement(subsetArray, x);
+        int yRoot = findSetOfElement(subsetArray, y);
+        if (subsetArray[xRoot].rank < subsetArray[yRoot].rank) {
+            subsetArray[xRoot].parent = yRoot;
+        } else if (subsetArray[xRoot].rank > subsetArray[yRoot].rank) {
+            subsetArray[yRoot].parent = xRoot;
+        } else {
+            subsetArray[yRoot].parent = xRoot;
+            subsetArray[xRoot].rank++;
+        }
+    }
+
+    static void kruskal(ArrayList<edge>[] graph, int vertices) {
+        ArrayList<edge> mst = new ArrayList<>();
+        PriorityQueue<edge> pq = new PriorityQueue<>();
+        for (int i = 0; i < vertices; i++) {
+            for (edge edge : graph[i]) {
+                pq.add(edge);
+            }
+        }
+        Subset[] subsetArray = new Subset[vertices];
+        for (int i = 0; i < vertices; i++) {
+            subsetArray[i] = new Subset();
+            subsetArray[i].parent = i;
+            subsetArray[i].rank = 0;
+        }
+        int cost=0;
+        while (!pq.isEmpty() && mst.size() < vertices - 1) {
+            edge edge = pq.poll();
+            int x = findSetOfElement(subsetArray, edge.src);
+            int y = findSetOfElement(subsetArray, edge.dest);
+            if (x != y) {
+                mst.add(edge);
+                cost+=edge.wt;
+                union(subsetArray, x, y);
+            }
+        }
+        
+        System.out.println("KRUSHAKL ALGORITHM\nTotal Cost = "+cost);
+        for (edge edge : mst) {
+            System.out.println(edge.src + " - " + edge.dest + " [" + edge.wt + "]");
+        }
+    }
+
+   
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 //	int v=6;
@@ -211,13 +269,22 @@ public class Weighted_Graph {
 		int v = 4;
 		ArrayList<edge> graph[] = new ArrayList[v];
 		create(graph, v);
-		PrimsAlgo(graph, v);
+//		PrimsAlgo(graph, v);
+		
 //		PRIMS ALGORITHM
 //		Total Cost = 55
-//		Edges included are
+//		edges included are
 //		0-->1 [10]
 //		1-->2 [15]
 //		2-->3 [30]
+		kruskal(graph, v);
+//		KRUSHAKL ALGORITHM
+//		Total Cost = 55
+//		0 - 1 [10]
+//		0 - 2 [15]
+//		0 - 3 [30]
+
+
 
 	}
 
