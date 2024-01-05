@@ -44,7 +44,7 @@ public class Task_Scheduling_by_earliest_finsh_time {
 			task prev=pq.poll();
 			res.add(prev);
 		for (int i = 1; i < n; i++) {
-//			if(task j is compatable with res add else delete all imcopatable 
+//			if task j is compatible with res add else delete all imcopatable 
 			task curr=pq.poll();
 			if(curr.start>=prev.finsh) {
 				res.add(curr);
@@ -62,7 +62,7 @@ public class Task_Scheduling_by_earliest_finsh_time {
 		// TODO Auto-generated method stub
 		Task_Scheduling_by_earliest_finsh_time l1=new Task_Scheduling_by_earliest_finsh_time();
 		l1.addTaskDetails('a', 8,13);
-		l1.addTaskDetails('b', 2,4);
+		l1.addTaskDetails('b', 8,13);
 		l1.addTaskDetails('c', 5,7);
 		l1.addTaskDetails('d', 8,12);
 		l1.addTaskDetails('e', 4,14);
