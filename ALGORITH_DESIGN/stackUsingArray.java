@@ -15,11 +15,20 @@ public class stackUsingArray {
 
 	static void push(int d) {
 		if (top == maxsize - 1) {
-			System.out.println("OverFlow");
-			return;
+			doublesize();
 		}
-		arr[top++]=d;
+		arr[++top]=d;
 		
+	}
+	static void doublesize() {
+		
+		int brr[]=Arrays.copyOf(arr, maxsize);
+		maxsize*=2;
+		arr=new int[maxsize];
+		Arrays.fill(arr, -999);
+		for(int i=0;i<=top;i++) {
+			arr[i]=brr[i];
+		}
 	}
 	static int pop() {
 		if(top==-1) {
